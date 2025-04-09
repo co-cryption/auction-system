@@ -1,0 +1,28 @@
+<div class="admin-auction">
+    <h2>Manage Auctions</h2>
+    <table class="auctions" border="1">
+        <thead>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>STARTING PRICE</th>
+            <th>APPROVAL STATUS</th>
+            <th>SELLER</th>
+            <th>STATUS</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of auction">
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.starting_price}}</td>
+                <td>{{item.is_approved}}</td>
+                <td>{{item.seller_name}}</td>
+                <td><button class="status-btn" [class.active]="item.is_approved"
+                    [class.disapproved]="!item.is_approved"
+                    (click)="toggleaucstatus(item.id)">
+                    {{ item.is_approved ? 'Disapprove' : 'Approve' }}
+                  </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

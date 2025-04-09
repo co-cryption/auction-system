@@ -1,0 +1,57 @@
+
+<div class="container">
+    <h2>Payment Notifications</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item Id</th>
+          <th>Price</th>
+          <th>Message</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let notification of notifications">
+          <td>{{ notification.auction_id }}</td>
+          <td>₹{{ notification.price }}</td>
+          <td>{{ notification.message }}</td>
+          <td>
+            <button 
+              class="pay-btn" 
+              *ngIf="!paidAuctions.includes(notification.auction_id)" 
+              (click)="initiatePayment(notification)">
+              Pay Now
+            </button>
+          
+            <button 
+              class="paid-btn" 
+              *ngIf="paidAuctions.includes(notification.auction_id)" 
+              disabled>
+              Payment Done
+            </button>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+  <div class="container">
+    <h2>Owned Items</h2>
+    
+    <h3 class="auction-text">Owned Items</h3>
+<div class="auction-grid">
+    <div *ngFor="let item of owneditem" class="auction-card">
+        <img [src]="'http://127.0.0.1:8000'+ item.image" alt="item image">
+        <h3>{{ item.title }}</h3>
+        <p><strong>Purchased for: ₹{{ item.price }}</strong></p>
+    </div>
+</div>
+
+  </div>
+
+
+  
+  
+
+  

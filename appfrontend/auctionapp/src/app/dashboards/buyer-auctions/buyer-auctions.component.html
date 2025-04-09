@@ -1,0 +1,10 @@
+<h3 class="auction-text">Listed Items are</h3>
+<div class="auction-grid">
+    <div *ngFor="let item of auctions" class="auction-card" (click)="router.navigate(['/main/buyerdash/auction-detail', item.id])">
+        <img [src]="'http://127.0.0.1:8000'+ item.image" alt="item image ">
+        <h3>{{item.title}}</h3>
+        <p><strong>Current bid : ₹{{item.current_price}}</strong></p>
+        <p><strong>Ends in: {{ item.end_time | date:'dd/MM/yy, hh:mm a' }}</strong></p>
+    </div>
+</div>
+

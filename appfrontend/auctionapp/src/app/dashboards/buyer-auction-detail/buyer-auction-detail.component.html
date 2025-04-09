@@ -1,0 +1,62 @@
+<div class="auction-detail-container">
+  
+  <!-- First Card: Item Details -->
+  <div class="auction-card">
+   <img [src]="'http://127.0.0.1:8000' + auction?.image" 
+     alt="Auction Item" 
+     class="auction-image">
+    <ng-template #noImage>
+    <p>No Image Available</p>
+    </ng-template>
+    <h2>{{ auction?.title }}</h2>
+    <p><strong>Starting Bid:</strong> ₹{{ auction?.starting_price }}</p>
+    <p><strong>Current Bid:</strong> ₹{{ auction?.current_price }}</p>
+    
+    <p><strong>End Time:</strong> {{ auction?.end_time | date:'dd/MM/yy,hh:mm a' }}</p>
+  </div>
+
+  <!-- Second Card: Place Bid -->
+  <div class="auction-card">
+    <h2>Place a Bid</h2>
+    <input type="number" [(ngModel)]="newBidAmount" placeholder="Enter bid amount" class="bid-input">
+    <button 
+    [disabled]="active_role === 'seller' || auction?.seller_name === logged_in_user" 
+    (click)="placeBid()">
+    Place Bid
+  </button>
+  
+  <p *ngIf="auction?.seller_name === logged_in_user">You cannot bid on your own items.</p>
+<p>Logged-in User: {{ logged_in_user }}</p>
+<p>Auction Seller: {{ auction?.seller_name }}</p>
+<!-- Watchlist Icon -->
+<span 
+  class="material-symbols-outlined watchlist-icon" 
+  (click)="toggleWatchlist(auction!)"
+  [ngClass]="{'watchlisted': isInWatchlist(auction!)}">
+  favorite
+</span>
+<p><strong>Item Description:</strong> {{ auction?.description }}</p>
+
+  </div>
+
+  <!-- Third Card: Bidding History -->
+  <div class="auction-card">
+    <h2>Bidding History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Bid Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bid of (auction?.bids || []).slice(-5).reverse()">
+          <td>{{ bid.bidder__username }}</td>
+          <td>₹{{ bid.bid_amount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+

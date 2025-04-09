@@ -1,0 +1,54 @@
+<!-- <div class="admin-users">
+    <h2>Users</h2>
+    <table border="1">
+        <tr>
+            <th>Useranme</th>
+            <th>email</th>
+            <th>fname</th>
+            <th>lastname</th>
+            <th>approve</th>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>
+                <button (click)="togglestatus(user.id)">
+                    {{user.is_active?'Disapprove':'approve'}}
+                </button>
+            </td>
+        </tr>
+    </table>
+</div> -->
+
+<div class="admin-users">
+    <h2>Manage Users</h2>
+    <table class="user-table">
+      <thead>
+        <tr>
+            <th>Id</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>
+            <button class="status-btn" [class.active]="user.is_active" (click)="togglestatus(user.id)">
+              {{ user.is_active ? 'Disapprove' : 'Approve' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

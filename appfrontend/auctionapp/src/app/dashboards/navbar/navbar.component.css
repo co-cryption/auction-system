@@ -1,0 +1,64 @@
+
+
+.navbar.admin{
+  background: radial-gradient(circle, #196cdf, #1aade2); 
+    color: white;
+    height: 10vh;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* #008080 → #001F3F */
+  .navbar-title {
+    margin: 0;
+    font-size: 29px;
+  
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .navbar-links li a:hover {
+    text-decoration: underline;
+  }
+  /* #1E3A8A → #4B0082 */
+  /* .navbar.seller {
+    background-color:  */
+    /* .navbar.seller {
+      background: radial-gradient(circle, #1E3A8A, #4B0082); 
+  } */
+
+.navbar.seller{
+  background: radial-gradient(circle, #e52020f2, #e52020f2); 
+    color: white;
+    height: 10vh;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.navbar.buyer{
+  background: #00ADB5; 
+    color: white;
+    height: 10vh;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  
+  
+  

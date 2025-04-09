@@ -1,0 +1,57 @@
+
+<!-- <div class="auction-grid">
+    <div *ngFor="let item of auctionItems" class="auction-item">
+      <img [src]="'http://127.0.0.1:8000' + item.image" alt="Auction Item" />
+      <h3>{{ item.title }}</h3>
+      <p><strong>Starting Price:</strong> ₹{{ item.starting_price }}</p>
+      <p><strong>Current Bid:</strong> ₹{{ item.current_price }}</p>
+      <p><strong>Buyer:</strong> {{ item.buyer_username || 'No Bids Yet' }}</p>
+      <p><strong>Ends:</strong> {{ item.end_time | date:'short' }}</p>
+    </div>
+  </div> -->
+  
+  <div class="auction-grid">
+    <div *ngFor="let item of auctionItems" class="auction-item" [class.expired]="isExpired(item.end_time)">
+      <img [src]="'http://127.0.0.1:8000' + item.image" alt="Auction Item" class="auction-img" />
+      <h3>{{ item.title }}</h3>
+      <p><strong>Starting Price:</strong> ₹{{ item.starting_price }}</p>
+      <p><strong>Current Bid:</strong> ₹{{ item.current_price }}</p>
+      <p><strong> Current Buyer:</strong> {{ item.buyer_username || 'No Bids Yet' }}</p>
+      <p><strong>Ends:</strong> {{ item.end_time | date:'dd/MM/yy, hh:mm a' }}</p>
+
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="edit-btn" (click)="editAuctionItem(item)">Edit</button>
+        <button class="delete-btn" (click)="deleteAuctionItem(item.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Edit Auction Item Form -->
+  <div *ngIf="selectedItemId" class="edit-form">
+    <h3>Edit Auction Item</h3>
+    <form [formGroup]="newItemForm" (ngSubmit)="onSubmit()">
+      <label>Title:</label>
+      <input type="text" formControlName="title" required>
+  
+      <label>Description:</label>
+      <textarea formControlName="description" required></textarea>
+  
+      <label>Starting Price:</label>
+      <input type="number" formControlName="starting_price" required>
+  
+      <label>End Time:</label>
+      <input type="datetime-local" formControlName="end_time" required>
+  
+      <label>Image:</label>
+      <input type="file" (change)="onFileSelected($event)">
+      <div *ngIf="imagePreview">
+        <img [src]="imagePreview" alt="Image Preview" class="image-preview">
+      </div>
+  
+      <button type="submit" class="save-btn">Save Changes</button>
+      <button type="button" class="cancel-btn" (click)="resetForm()">Cancel</button>
+    </form>
+  </div>
+    

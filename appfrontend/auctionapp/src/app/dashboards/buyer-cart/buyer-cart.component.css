@@ -1,0 +1,192 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .table thead {
+    background: #007bff;
+    color: white;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background: #f1f1f1;
+    transition: 0.3s;
+  }
+  
+  .pay-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .pay-btn:hover {
+    background: #218838;
+  }
+  
+  .pay-btn:active {
+    transform: scale(0.98);
+  }
+  
+
+  
+
+  .paid-btn {
+    background-color: #28a745; /* ✅ Green for success */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: not-allowed; /* ✅ Indicates it's unclickable */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+  }
+  
+  .paid-btn:hover {
+    opacity: 1;
+  }
+
+
+  /* ////// */
+  
+.auction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.auction-card {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+
+  background: rgba(0, 173, 181,0.5);
+  /* background: rgba(234, 100, 100, 0.5); */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+
+  -webkit-box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #62c2e2;
+
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.auction-card:hover {
+  transform: scale(1.05);
+}
+
+.auction-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auction-card:hover img {
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+
+.auction-card h3, .auction-card p {
+  position: absolute;
+  color: #222831;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.auction-card h3 {
+  top: 20px;
+  left: 20px;
+  font-family: 'Bile', sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.auction-card p {
+  left: 20px;
+  font-family: 'Bile', serif;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+/* .auction-card p:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%);
+} */
+.auction-card p:nth-child(3) {
+  top: 80px; /* Moved closer to the title */
+  transform: none; /* Remove the vertical centering */
+}
+
+/* .auction-card p:nth-child(4) {
+  bottom: 20px;
+} */
+.auction-card p:nth-child(4) {
+  top: 120px; /* Position directly below the current bid */
+  bottom: auto; /* Remove the bottom positioning */
+}
+
+.auction-card:hover h3 {
+  top: 40px;
+  opacity: 1;
+}
+
+.auction-card:hover p {
+  opacity: 1;
+}
+
+
+.auction-card:hover p:nth-child(3) {
+  top: 100px; /* Adjust for hover state */
+  opacity: 1;
+}
+
+.auction-card:hover p:nth-child(4) {
+  top: 140px; /* Adjust for hover state */
+  opacity: 1;
+}
+
+.auction-text{
+  font-style: italic;
+  font-size: larger;
+  color: darkblue;
+}
+
+
+
+
+  

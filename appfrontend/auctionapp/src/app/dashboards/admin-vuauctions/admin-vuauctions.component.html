@@ -1,0 +1,28 @@
+<div class="container">
+    <h2 class="title">All auction items</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id </th>
+                <th>Title</th>
+                <th>Endtime</th>
+                <th>Status</th>
+                <th>buyer</th>
+                <th>Final price</th>
+                <th>Payment status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let auction of allitems">
+              <td>{{ auction.id}}</td>
+              <td>{{ auction.title}}</td>
+              <td>{{ auction.end_time | date:'dd MMM yyyy, h:mm a' }}</td>
+              <td>{{ auction.status }}</td>
+              <td>{{ auction.buyer ? auction.buyer : 'No Bids' }}</td>
+              <td>{{ auction.final_price ? auction.final_price : '-' }}</td>
+              <td>{{ auction.payment_status }}</td>
+              
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+
+<nav class="navbar" [ngClass]="role">
+    <h1 class="navbar-title">Bid'N'Buy</h1>
+    <ul class="navbar-links">
+      <ng-container *ngIf="role === 'seller'">
+        <li><a routerLink="/main/sellerdash/newlisting">Create listing</a></li>
+        <li><a routerLink="/main/sellerdash/activlisting">My items</a></li>
+        <li><a routerLink="/main/sellerdash/allnotif">Item Status</a></li>
+      </ng-container>
+  
+      <ng-container *ngIf="role === 'admin'">
+        <li><a routerLink="/main/admindash/users">Users</a></li>
+        <li><a routerLink="/main/admindash/auctions">Auctions</a></li>
+        <li><a routerLink="/main/admindash/allauctions">View all</a></li>
+      </ng-container>
+  
+      <ng-container *ngIf="role === 'buyer'">
+        <li><a routerLink="/main/buyerdash/buyeritems">Auctions</a></li>
+        <li><a routerLink="/main/buyerdash/watchlist">Watchlist</a></li>
+        <li><a routerLink="/main/buyerdash/cart">Cart</a></li>
+      </ng-container>
+  
+      <li><a (click)="onLogout()">Logout</a></li>
+    </ul>
+  </nav>
+  
+

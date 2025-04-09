@@ -1,0 +1,39 @@
+.watchlist-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .watchlist-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .watchlist-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .details {
+    flex-grow: 1;
+  }
+  
+  button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  button:hover {
+    background-color: darkred;
+  }
+  

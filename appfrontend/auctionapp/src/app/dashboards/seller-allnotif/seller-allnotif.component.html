@@ -1,0 +1,41 @@
+<p>seller-allnotif works!</p>
+<div class="container">
+  <h2 class="title">Auction Status - Seller Notifications</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>End Time</th>
+        <th>Status</th>
+        <th>Buyer</th>
+        <th>Final Price</th>
+        <th>Payment Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let auction of endedAuctions" [class.sold]="auction.status === 'Sold'">
+        <td>{{ auction.title }}</td>
+        <td>{{ auction.end_time }}</td>
+        <td>{{ auction.status }}</td>
+        <td>{{ auction.buyer ? auction.buyer : 'No Bids' }}</td>
+        <td>{{ auction.final_price ? auction.final_price : '-' }}</td>
+        <td>{{ auction.payment_status }}</td>
+        <!-- <td [ngClass]="{'text-success': auction.payment_status === 'Payment Complete', 'text-warning': auction.payment_status === 'Pending'}">
+          {{ auction.payment_status }}
+        </td> -->
+        <td>
+          <button *ngIf="auction.status === 'Sold' && auction.buyer"
+        [disabled]="auction.payment_requested"
+        (click)="requestPayment(auction)">
+  {{ auction.payment_requested ? 'Request Sent' : 'Request Payment' }}
+</button>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  
+  

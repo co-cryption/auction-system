@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: 'Truens';
+    src: url('assets\fonts\fonnts.com-truens_two.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'Bile';
+    src: url('assets\fonts\Bile TTF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
